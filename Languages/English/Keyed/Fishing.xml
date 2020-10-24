@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LanguageData>
+  <FishingAutomation.Fishing>Fishing</FishingAutomation.Fishing>
+  <FishingAutomation.AllowedFish>Allowed fish</FishingAutomation.AllowedFish>
+  <FishingAutomation.NewFishingJob>New job</FishingAutomation.NewFishingJob>
+  <FishingAutomation.NewFishingJob.Tooltip>Create a new fishing job</FishingAutomation.NewFishingJob.Tooltip>
+  <FishingAutomation.SyncFilterAndAllowed>Synchronize threshold</FishingAutomation.SyncFilterAndAllowed>
+  <FishingAutomation.SyncFilterAndAllowed.Tooltip>Enabling this will try to synchronize the counted materials in the threshold filter with fish types allowed for fishing, and vice versa.</FishingAutomation.SyncFilterAndAllowed.Tooltip>
+  <FishingAutomation.TargetCount>Target count: {0}/{1}</FishingAutomation.TargetCount>
+  <FishingAutomation.TargetCount.Tooltip>Target: {1}\n{0} in storage</FishingAutomation.TargetCount.Tooltip>
+  <FishingAutomation.FishSizeCategory.Small>Small</FishingAutomation.FishSizeCategory.Small>
+  <FishingAutomation.FishSizeCategory.Small.Tooltip>Select all small fish types</FishingAutomation.FishSizeCategory.Small.Tooltip>
+  <FishingAutomation.FishSizeCategory.Medium>Medium</FishingAutomation.FishSizeCategory.Medium>
+  <FishingAutomation.FishSizeCategory.Medium.Tooltip>Select all medium fish types</FishingAutomation.FishSizeCategory.Medium.Tooltip>
+  <FishingAutomation.FishSizeCategory.Large>Large</FishingAutomation.FishSizeCategory.Large>
+  <FishingAutomation.FishSizeCategory.Large.Tooltip>Select all large fish types</FishingAutomation.FishSizeCategory.Large.Tooltip>
+</LanguageData>

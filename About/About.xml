@@ -1,0 +1,33 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+
+<ModMetaData>
+  <name>Vanilla Fishing Expanded - Automation</name>
+  <author>LordKuper</author>
+  <packageId>LordKuper.FishingAutomation</packageId>
+  <supportedVersions>
+    <li>1.2</li>
+  </supportedVersions>
+  <modDependencies>
+    <li>
+      <packageId>brrainz.harmony</packageId>
+      <displayName>Harmony</displayName>
+      <steamWorkshopUrl>steam://url/CommunityFilePage/2009463077</steamWorkshopUrl>
+    </li>
+    <li>
+      <packageId>VanillaExpanded.VCEF</packageId>
+      <displayName>Vanilla Fishing Expanded</displayName>
+      <steamWorkshopUrl>steam://url/CommunityFilePage/1914064942</steamWorkshopUrl>
+    </li>
+    <li>
+      <packageId>fluffy.colonymanager</packageId>
+      <displayName>Colony Manager</displayName>
+      <steamWorkshopUrl>steam://url/CommunityFilePage/715565262</steamWorkshopUrl>
+    </li>
+  </modDependencies>
+  <loadAfter>
+    <li>brrainz.harmony</li>
+    <li>VanillaExpanded.VCEF</li>
+    <li>fluffy.colonymanager</li>
+  </loadAfter>
+  <description>Automation mod for 'Vanilla Fishing Expanded'</description>
+</ModMetaData>
