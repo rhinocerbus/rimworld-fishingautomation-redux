@@ -24,8 +24,7 @@ namespace FishingAutomation
             var thingFilter = new ThingFilter(Notify_ThresholdFilterChanged);
             thingFilter.SetDisallowAll();
             var parentFilter = new ThingFilter();
-            parentFilter.SetDisallowAll();
-            parentFilter.SetAllow(ThingCategoryDef.Named("VCEF_RawFishCategory"), true);
+            parentFilter.SetAllowAll(null);
             Trigger = new Trigger_Threshold(this.manager)
             {
                 Op = Trigger_Threshold.Ops.LowerThan,
