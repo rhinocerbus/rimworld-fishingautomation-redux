@@ -118,7 +118,6 @@ namespace FishingAutomation
 
         private float DrawFishList(Vector2 pos, float width)
         {
-            var start = pos;
             var rowRect = new Rect(pos.x, pos.y, width, ListEntryHeight);
             var allowedFish = _selected.AllowedFish;
             var fishDefs = new List<FishDef>(allowedFish.Keys);
@@ -129,7 +128,7 @@ namespace FishingAutomation
                     () => _selected.AllowedFish[def] = !_selected.AllowedFish[def]);
                 rowRect.y += ListEntryHeight;
             }
-            return rowRect.yMin - start.y;
+            return rowRect.yMin - pos.y;
         }
 
         private float DrawFishShortcuts(Vector2 pos, float width)
@@ -191,7 +190,7 @@ namespace FishingAutomation
 
         private void Refresh()
         {
-            if (Prefs.DevMode) { Log.Message("Fishing Automation: Refreshing fishing tab...", true); }
+            if (Prefs.DevMode) { Log.Message("Fishing Automation: Refreshing fishing tab..."); }
             _jobs = manager.JobStack.FullStack<ManagerJob_Fishing>();
             foreach (var job in _jobs) { job.RefreshAllowedFish(); }
             _selected?.RefreshAllowedFish();

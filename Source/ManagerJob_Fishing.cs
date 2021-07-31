@@ -15,7 +15,7 @@ namespace FishingAutomation
     {
         public Dictionary<FishDef, bool> AllowedFish = new Dictionary<FishDef, bool>();
         public History History;
-        public Utilities.SyncDirection Sync = Utilities.SyncDirection.AllowedToFilter;
+        private Utilities.SyncDirection Sync = Utilities.SyncDirection.AllowedToFilter;
         public bool SyncFilterAndAllowed = true;
         public new Trigger_Threshold Trigger;
 
@@ -80,7 +80,7 @@ namespace FishingAutomation
             if (Manager.LoadSaveMode == Manager.Modes.Normal) { Scribe_Deep.Look(ref History, nameof(History)); }
         }
 
-        public void Notify_ThresholdFilterChanged()
+        private void Notify_ThresholdFilterChanged()
         {
             if (!SyncFilterAndAllowed || Sync == Utilities.SyncDirection.AllowedToFilter) { return; }
             foreach (var fish in AllowedFish.Keys)
@@ -91,8 +91,8 @@ namespace FishingAutomation
 
         public void RefreshAllowedFish()
         {
-            var options = DefDatabase<FishDef>.AllDefs.Where(fish =>
-                fish.thingDef.IsWithinCategory(ThingCategoryDef.Named("VCEF_RawFishCategory"))).ToList();
+            var options = DefDatabase<FishDef>.AllDefs.Where(fish => fish.fishSizeCategory != FishSizeCategory.Special)
+                .ToList();
             foreach (var fish in AllowedFish.Keys.ToList().Where(fish => !options.Contains(fish)))
             {
                 AllowedFish.Remove(fish);
@@ -111,8 +111,7 @@ namespace FishingAutomation
             if (Prefs.DevMode)
             {
                 Log.Message(
-                    $"Fishing Automation: Setting fish '{fish.thingDef.LabelCap}' to {(allow ? "allowed" : "forbidden")}",
-                    true);
+                    $"Fishing Automation: Setting fish '{fish.thingDef.LabelCap}' to {(allow ? "allowed" : "forbidden")}");
             }
             AllowedFish[fish] = allow;
             if (SyncFilterAndAllowed)
@@ -125,48 +124,44 @@ namespace FishingAutomation
 
         private string SubLabel(Rect rect)
         {
-            var sublabel = string.Join(", ", Targets);
-            return sublabel.Fits(rect) ? sublabel.Italic() : Resources.Strings.Multiple.Italic();
+            var subLabel = string.Join(", ", Targets);
+            return subLabel.Fits(rect) ? subLabel.Italic() : Resources.Strings.Multiple.Italic();
         }
 
         public override bool TryDoJob()
         {
             if (Prefs.DevMode)
             {
-                Log.Message("Fishing Automation: Executing job...", true);
+                Log.Message("Fishing Automation: Executing job...");
                 foreach (var fish in AllowedFish)
                 {
                     Log.Message(
-                        $"Fishing Automation: {fish.Key.thingDef.LabelCap} = {(fish.Value ? "allowed" : "forbidden")}",
-                        true);
+                        $"Fishing Automation: {fish.Key.thingDef.LabelCap} = {(fish.Value ? "allowed" : "forbidden")}");
                 }
-                Log.Message($"Fishing Automation: Job targets = {string.Join(", ", Targets)}", true);
+                Log.Message($"Fishing Automation: Job targets = {string.Join(", ", Targets)}");
             }
             var zones = Find.CurrentMap.zoneManager.AllZones.Where(zone => zone is Zone_Fishing).OfType<Zone_Fishing>()
                 .ToList();
             if (Prefs.DevMode)
             {
                 Log.Message(
-                    $"Fishing Automation: Discovered fishing zones = {string.Join(", ", zones.Select(zone => zone.label))}",
-                    true);
+                    $"Fishing Automation: Discovered fishing zones = {string.Join(", ", zones.Select(zone => zone.label))}");
             }
             foreach (var zone in zones)
             {
                 if (Prefs.DevMode)
                 {
-                    Log.Message($"Fishing Automation: Checking fishing zone '{zone.label}'", true);
+                    Log.Message($"Fishing Automation: Checking fishing zone '{zone.label}'");
                     Log.Message(
-                        $"Fishing Automation: Fish in zone = '{string.Join(", ", zone.fishInThisZone.Select(fish => fish.LabelCap))}'",
-                        true);
+                        $"Fishing Automation: Fish in zone = '{string.Join(", ", zone.fishInThisZone.Select(fish => fish.LabelCap))}'");
                 }
                 if (AllowedFish.Keys.Where(key => AllowedFish[key]).Select(fish => fish.thingDef)
                     .Intersect(zone.fishInThisZone).Any())
                 {
                     if (Prefs.DevMode)
                     {
-                        Log.Message($"Fishing Automation: Fishing zone '{zone.label}' is relevant", true);
-                        Log.Message($"Fishing Automation: Fishing in zone '{zone.label}' is allowed = {Trigger.State}",
-                            true);
+                        Log.Message($"Fishing Automation: Fishing zone '{zone.label}' is relevant");
+                        Log.Message($"Fishing Automation: Fishing in zone '{zone.label}' is allowed = {Trigger.State}");
                     }
                     zone.allowFishing = Trigger.State;
                 }

@@ -12,7 +12,7 @@ namespace FishingAutomation
         {
             var harmony = new Harmony("LordKuper.FishingAutomation");
             harmony.PatchAll(Assembly.GetExecutingAssembly());
-            if (Prefs.DevMode) { Log.Message("Fishing Automation: Initialized.", true); }
+            if (Prefs.DevMode) { Log.Message("Fishing Automation: Initialized."); }
         }
     }
 }

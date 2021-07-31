@@ -50,7 +50,7 @@ namespace FishingAutomation
         [StaticConstructorOnStartup]
         internal static class Textures
         {
-            public static Texture2D IconFish = ContentFinder<Texture2D>.Get("fishing-automation-tab-icon");
+            public static readonly Texture2D IconFish = ContentFinder<Texture2D>.Get("fishing-automation-tab-icon");
         }
     }
 }
