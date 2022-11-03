@@ -1,5 +1,7 @@
 # rimworld-fishingautomation
 [![Version](https://img.shields.io/badge/Rimworld-1.2-green.svg)](http://rimworldgame.com/)
+[![Version](https://img.shields.io/badge/Rimworld-1.3-green.svg)](http://rimworldgame.com/)
+[![Version](https://img.shields.io/badge/Rimworld-1.4-green.svg)](http://rimworldgame.com/)
 [![License: CC BY-NC-ND 4.0](https://img.shields.io/badge/License-CC%20BY--NC--ND%204.0-blue.svg)](https://creativecommons.org/licenses/by-nc-nd/4.0/)
 
 A fishing automation mod for Rimworld.
