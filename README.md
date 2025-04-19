@@ -4,7 +4,7 @@
 
 A fishing automation mod for Rimworld based on Colony Manager Redux for 1.5 compatibility.
 
-Forked from original mod ['Vanilla Fishing Expanded - Automation']](https://steamcommunity.com/sharedfiles/filedetails/?id=2266336252).
+Forked from original mod ['Vanilla Fishing Expanded - Automation'](https://steamcommunity.com/sharedfiles/filedetails/?id=2266336252).
 
 ## Description
 This mod adds fishing tab to ['Colony Manager Reux'](https://steamcommunity.com/sharedfiles/filedetails/?id=3310027356) that automates fishing added to Rimworld by ['Vanilla Fishing Expanded'](https://steamcommunity.com/sharedfiles/filedetails/?id=1914064942&searchtext=fishing).
