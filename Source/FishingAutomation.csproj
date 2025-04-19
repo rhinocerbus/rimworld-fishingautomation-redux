@@ -7,15 +7,15 @@
     <ProjectGuid>{5110932F-2229-4DA6-8E40-5B79AF92FB8A}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>FishingAutomation</RootNamespace>
-    <AssemblyName>FishingAutomation</AssemblyName>
+    <RootNamespace>FishingAutomationRedux</RootNamespace>
+    <AssemblyName>FishingAutomationRedux</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <Deterministic>true</Deterministic>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
-    <DebugSymbols>true</DebugSymbols>
-    <DebugType>full</DebugType>
+    <DebugSymbols>false</DebugSymbols>
+    <DebugType>none</DebugType>
     <Optimize>false</Optimize>
     <OutputPath>D:\Games\RimWorld_debug\Mods\FishingAutomation\1.4\Assemblies\</OutputPath>
     <DefineConstants>DEBUG;TRACE</DefineConstants>
